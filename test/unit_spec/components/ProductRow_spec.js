@@ -11,16 +11,42 @@ describe('ProductRow Spec', () => {
     beforeEach(() => {});
 
     afterEach(() => {});
-    it('ProductRow validation with single row of data', () => {
+    it('Should display the single row when provided with valid data', () => {
         const productRow = new ProductRow();
         productRow.props = {
-            data: {name: 'test', price: 12.99}
+            data: {name: 'test', price: '$12.99'}
         };
         const renderedElement = productRow.render();
         const expectedElement = (<div>
             <p>
-              test = 12.99
+              test = $12.99
             </p>
+          </div>);
+        expect(renderedElement).jsx.to.equal(expectedElement);
+    });
+
+    it('Should display the single row when provided with invalid strings', () => {
+        const productRow = new ProductRow();
+        productRow.props = {
+            data: {name: 'test', price: '$%#@'}
+        };
+        const renderedElement = productRow.render();
+        const expectedElement = (<div>
+            <p>
+              test = $%#@
+            </p>
+          </div>);
+        expect(renderedElement).jsx.to.equal(expectedElement);
+    });
+
+    it('Should not display the row when provided no data', () => {
+        const productRow = new ProductRow();
+        productRow.props = {
+            data: {}
+        };
+        const renderedElement = productRow.render();
+        const expectedElement = (<div>
+            <p> = </p>
           </div>);
         expect(renderedElement).jsx.to.equal(expectedElement);
     });

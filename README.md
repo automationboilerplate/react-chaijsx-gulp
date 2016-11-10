@@ -1,58 +1,28 @@
-![](http://jpsierens.com/wp-content/uploads/2016/06/react-eco-wp.gif)
+# Testing React components with chai-jsx
 
-# webpack-react-redux
-A boilerplate for playing around with react, redux and react-router with the help of webpack.
+## Overview:
+This project is a boilerplate Unit testing project for react framework with chai-jsx. I have taken a small reactjs development project for filterable tables and added the Unit testing on top of it.
 
-Contains: 
+Development framework is from the GIT Repository:
+https://github.com/jpsierens/webpack-react-redux
 
-* a working example of a filterable table which you can play around with (look below).
-* ES6 - 7 Support with Babel
-* Redux dev tools to help you keep track of the app's state
-* Routing
-* hot module replacement support so you can change modules or react components without having to reload the browser
-* a webpack production config so you can build the app and make it ready for production
-* Sass support, just import your styles wherever you need them
-* eslint to keep your js readable
-* much more...
+Testing framework uses chai-jsx, Mocha framework by rendering the react component on jsdom.
+* jsdom - JavaScript Implementation of DOM.jsdom is implemented in JavaScript, so we can have a DOM-like API to work with without needing a browser.
+* chai-jsx - JSX react element assertion for chai.
+* Mocha - Unit Testing framework and uses mocha test runner with mochawesome reporting.
 
+## How to Expose the App:
+* Prerequisite:
+Install Nodejs, and gulp at the global level on your machine.
 
+Clone this project and do an
+* npm install - For Installing the required components.
+* npm start - For starting the Web app on your localhost. The web application will be listening on port 3000. http://localhost:3000/
+* npm test - Will run the Unit Tests.
 
-![](http://jpsierens.com/wp-content/uploads/2016/06/filterableTable-1.gif)
+The Unit tests for DOM validation can be found in the folder test/unit_spec/components `.js` files.
+The setup for rendering the react component on jsdom is available in test/setup.js.
 
+With this Approach Individual react components can be tested for all the possible values and we can have very minimal UI functional testing.
 
-## Run the app
-
-0. ```npm install```
-0. ```npm start```
-
-Once running, if you want to hide the redux dev monitor: ```CTRL+H```
-
-Yes, it takes a while to load the first time you open the app.
-
-### Is the hot module replacement really working?
-
-Yup! Take a look:
-
-![](http://jpsierens.com/wp-content/uploads/2016/06/HMR4.gif)
-
-The app updates without the browser having to reload. You don't lose state!
-
-## Build the app
-```npm run build```
-
-This will build the app into the "dist" directory in the root of the project. It contains the index.html along with the minified assets, ready for production.
-
-![](http://i.imgur.com/uUg2A3S.png)
-
-It should look something like the above image.
-
-## I don't understand anything!
-
-I went ahead and wrote a detailed series of posts on this project for you. I hope it helps you understand better:
-
-* [configuring webpack](http://jpsierens.com/tutorial-react-redux-webpack/)
-* [understanding the app, part 1 (index.js, store, reducers)](http://jpsierens.com/simple-react-redux-application/)
-* [understanding the app, part 2 ( Root.js, router and the rest of the app)](http://jpsierens.com/simple-react-redux-application-2/)
-
-## Why doesn't it have async?
-To keep it unopinionated. You choose what async library you want. If you want to check out a full example with async in it, check this simple [todo-app](https://github.com/jpsierens/todo-app) that uses redux-sagas.
+For any queries Please contact vicky.008@gmail.com.
